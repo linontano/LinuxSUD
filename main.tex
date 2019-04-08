@@ -87,21 +87,30 @@
 \item GNU/Linux se encuentran en compendios conocidos como distribuciones o \textit{distros}.
 \end{itemize}
 \end{frame}
+\begin{frame}{FHS}
+\begin{itemize}
+    \item \textbf{Filesystem Hierarchy Standard}: estándar de jerarquía del sistema de archivos. 
+    \item Todos los archivos y directorios aparecen bajo el directorio raíz, /, aun cuando se encuentren en distintos dispositivos físicos.
+\end{itemize}
+
+\end{frame}
 \begin{frame}{Estructura GNU/Linux}
 \begin{figure}
 	\includegraphics[height=7cm]{img/estructura.jpg}
 \end{figure}
 \end{frame}
+
 \begin{frame}{Directorios principales}
 \begin{itemize}
-\item \textbf{\textbackslash :} es el nivel más alto dentro de la jerarquía de directorios.
-\item \textbf{\textbackslash bin:} binarios básicos que son ejecutables.
-\item \textbf{\textbackslash dev:} permite interactuar con los dispositivos del equipo.
-\item \textbf{\textbackslash etc:} archivos de configuración de los programas.
-\item \textbf{\textbackslash home:} carpeta por defecto de los usuarios.
-\item \textbf{\textbackslash tmp:} almacena ficheros temporales.
-\item \textbf{\textbackslash root:} directorio home del usuario root. 
-\item \textbf{\textbackslash mnt:} directorio montajes temporales de unidades.
+\item \textbf{/ :} es el nivel más alto dentro de la jerarquía de directorios.
+\item \textbf{/bin:} aplicaciones binarias de comandos esenciales para una sesión de usuario único o mutliusuario (Incluyen por ejemplo cat, ls, cp, rm, etc).
+\item \textbf{/sbin: }sistema de binarios esencial, comandos y programas exclusivos del superusuario (Por ejemplo init, route, ifup).
+\item \textbf{/dev:} permite interactuar con los dispositivos del equipo.
+\item \textbf{/etc:} archivos de configuración del sistema específico del Host de todo el sistema. 
+\item \textbf{/home:} carpeta por defecto de los usuarios.
+\item \textbf{/tmp:} almacena ficheros temporales.
+\item \textbf{/root:} directorio home del usuario root. 
+\item \textbf{/mnt:} sistema de archivos montados temporalmente. Discos duros y particiones de forma temporal en el sistema.
 \end{itemize}
 \end{frame}
 \begin{frame}{Instalación}
