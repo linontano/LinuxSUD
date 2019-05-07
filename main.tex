@@ -25,22 +25,41 @@
 \usepackage{amsmath}
 \usepackage{beton}
 \usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
 
 \usepackage{euler}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{multicol}
-\lstset
-{
-    language=[LaTeX]TeX,
-    breaklines=true,
-    basicstyle=\tt\scriptsize,
-    %commentstyle=\color{green}
-    keywordstyle=\color{blue},
-    %stringstyle=\color{black}
-    identifierstyle=\color{magenta},
-}
+\usepackage{color}
+%\setlength{\columnseprule}{0.025cm}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
 
+\lstset{ 
+  basicstyle=\tt\scriptsize,        % the size of the fonts that are used for the code
+  breaklines=true,                 % sets automatic line breaking
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=sh,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  xleftmargin=0.25cm
+  }
 \title[Administración GNU/Linux]{Administración de Sistemas Operativos GNU/Linux}
 \author{Lino Ontano}
 %\institute{ESPOL}
@@ -129,6 +148,91 @@
 
 \end{frame}
 \subsection{Comandos básicos para administración de archivos y directorios}
+\begin{frame}{Editores de texto}
+\textbf{Editor Vi:} \\editor de texto que maneja en memoria el texto entero de un archivo.\\[0.5cm]
+\textbf{Inicio Vi:} 
+\begin{center}
+\boxed{\texttt{\$ vi \textit{file}}}
+\end{center}
+Abre el archivo \textit{file}, en caso de no existir, abre el editor como si existiera.\\[0.5cm]
+\textbf{Modos de Vi}
+\begin{itemize}
+    \item Comando
+    \item Inserción
+    \item Línea
+\end{itemize}
+\end{frame}
+\begin{frame}{Modos de Vi}
+\textbf{Modo Comando} \textit{\small (Case Sensitive)}\\[0.5cm]
+{\scriptsize
+\begin{tabular}{l|p{8cm}}
+     \textsc{Comando}&\textsc{Acción}\\\hline
+     Flechas / \texttt{H,J,K,L} & Desplazamiento: Izquierda, Abajo, Arriba, Derecha.\\\hline
+     \textbf{X}\texttt{G} & Ubicarse en el número de línea \textbf{X} del archivo.\\\hline
+     \texttt{i} / \texttt{I} & Cambiar a modo insertar: a la izquierda del cursor/al comienzo de la línea del cursor.\\\hline
+     \texttt{x} &Borrar caracter debajo del cursor.\\\hline
+     \textbf{X}\texttt{dd} &Borrar las próximas \textbf{X}  debajo del cursor.\\\hline
+     \textbf{X}\texttt{yy} &Copiar las siguientes \textbf{X} líneas debajo del cursor. \\\hline
+     \texttt{p} &Pegar el contenido debajo del cursor. \\\hline
+     \texttt{u} &Deshacer último cambio realizado.
+\end{tabular}
+
+}
+\end{frame}
+\begin{frame}
+\textbf{Modo Inserción}\\
+Se ingresa el texto deseado, para salir de este modo se lo hace con la tecla \texttt{ESC}.\\[0.5cm]
+\textbf{Modo Línea}\\
+Se ingresa a ese modo con las teclas.
+{\scriptsize
+\begin{tabular}{l|l}
+\textsc{Comando}&\textsc{Acción}  \\\hline
+/\textbf{texto} & Busca hacia adelante la cadena de caracteres \textbf{texto}.\\\hline
+?\textbf{texto} & Busca hacia atrás la cadena de caracteres \textbf{texto}.\\\hline
+:q & Salir si no hubo cambios. \\\hline
+:q! & Salir sin guardar cambios.\\\hline
+:w \textit{archivo01} & Guardar cambios. \textit{Se guarda con el nombre archivo01}.\\\hline
+:wq & Guardar cambios y salir.
+
+\end{tabular}
+}
+\end{frame}
+\begin{frame}{Práctica Vi}
+\begin{itemize}
+    \item Abrir un documento con el nombre de \texttt{fileSUD.txt} y escribir la siguiente línea:
+    \begin{center}
+        \texttt{Esta es la línea numero uno.}
+    \end{center}
+    \item Desde comando copiar 9 veces la línea escrita y pegarla debajo de la misma. En el modo inserción editar cada línea con el número correspondiente.
+    \item Desde comando, copiar cada línea el número de veces que represente la línea, hasta la línea número cinco.
+\end{itemize}
+\end{frame}
+\begin{frame}{fileSUD.txt}
+\lstinputlisting{files/fileEJ.txt}
+\end{frame}
+
+\begin{frame}{fileSUD.txt}
+
+\lstinputlisting{files/fileEJ2.txt}
+
+\end{frame}
+\begin{frame}{Comandos básicos para administración de archivos}
+\begin{itemize}
+    \item El intérprete de comandos es \textit{}{case-sensitive}.
+\end{itemize}
+{\scriptsize
+\begin{tabular}{c|p{6cm}|l}
+\hline
+\textbf{clear} & Borra la pantalla   &\\
+\textbf{more}  & Visualiza archivos en páginas  & \texttt{more /etc/redhat-release}\\
+\textbf{pwd} & Visualiza la ubicación del directorio actual   &\\
+\textbf{ls} & Muestra un listado de los archivos y directorios de un directorio   & \texttt{ls -la \textit{directorio} }\\
+\textbf{rm} & Eliminar archivos   & \texttt{rm -r -f  \textit{nombreArchivo}}\\
+\textbf{cd} & Cambiar de directorio   & \texttt{cd} \\
+\textbf{mkdir} & Crea directorio   & \texttt{mkdir /tmp/directorio} 
+\end{tabular}
+ }   
+\end{frame}
 \subsection{Gestión y administración de usuarios y grupos}
 \subsection{Gestión, administración e instalación de procesos/paquetes RPM}
 \subsection{Empaquetado y compresión de archivos y directorios}
