@@ -197,11 +197,29 @@ Se ingresa a ese modo con las teclas.
 \end{tabular}
 }
 \end{frame}
+\begin{frame}{Comandos básicos para administración de archivos}
+\begin{itemize}
+    \item El intérprete de comandos es \textit{}{case-sensitive}.
+\end{itemize}
+{\scriptsize
+\begin{tabular}{c|p{5cm}|l}
+\hline
+\textbf{clear} & Borra la pantalla   &\\
+\textbf{cat/more/less}  & Visualiza archivos en páginas  & \texttt{more /etc/redhat-release}\\
+\textbf{pwd} & Visualiza la ubicación del directorio actual   &\\
+\textbf{ls} & Muestra un listado de los archivos y directorios de un directorio   & \texttt{ls -la \textit{directorio} }\\
+\textbf{rm/rmdir} & Eliminar archivos/directorios   & \texttt{rm -r -f  \textit{nombreArchivo}}\\
+\textbf{cd} & Cambiar de directorio   & \texttt{cd} \\
+\textbf{mkdir} & Crea directorio   & \texttt{mkdir /tmp/directorio} 
+\end{tabular}
+ }   
+\end{frame}
 \begin{frame}{Práctica Vi}
 \begin{itemize}
-    \item Abrir un documento con el nombre de \texttt{fileSUD.txt} y escribir la siguiente línea:
+    \item Crear una carpeta en el directorio: \texttt{/tmp} y ubicarse en él.
+    \item Crear un documento con el nombre de \texttt{fileSUD.txt} y escribir la siguiente línea:
     \begin{center}
-        \texttt{Esta es la línea numero uno.}
+        \texttt{Esta es la linea numero uno.}
     \end{center}
     \item Desde comando copiar 9 veces la línea escrita y pegarla debajo de la misma. En el modo inserción editar cada línea con el número correspondiente.
     \item Desde comando, copiar cada línea el número de veces que represente la línea, hasta la línea número cinco.
@@ -216,23 +234,7 @@ Se ingresa a ese modo con las teclas.
 \lstinputlisting{files/fileEJ2.txt}
 
 \end{frame}
-\begin{frame}{Comandos básicos para administración de archivos}
-\begin{itemize}
-    \item El intérprete de comandos es \textit{}{case-sensitive}.
-\end{itemize}
-{\scriptsize
-\begin{tabular}{c|p{6cm}|l}
-\hline
-\textbf{clear} & Borra la pantalla   &\\
-\textbf{more}  & Visualiza archivos en páginas  & \texttt{more /etc/redhat-release}\\
-\textbf{pwd} & Visualiza la ubicación del directorio actual   &\\
-\textbf{ls} & Muestra un listado de los archivos y directorios de un directorio   & \texttt{ls -la \textit{directorio} }\\
-\textbf{rm} & Eliminar archivos   & \texttt{rm -r -f  \textit{nombreArchivo}}\\
-\textbf{cd} & Cambiar de directorio   & \texttt{cd} \\
-\textbf{mkdir} & Crea directorio   & \texttt{mkdir /tmp/directorio} 
-\end{tabular}
- }   
-\end{frame}
+
 \subsection{Gestión y administración de usuarios y grupos}
 \subsection{Gestión, administración e instalación de procesos/paquetes RPM}
 \subsection{Empaquetado y compresión de archivos y directorios}
