@@ -235,6 +235,17 @@ Se ingresa a ese modo con las teclas.
 \lstinputlisting{files/fileEJ2.txt}
 
 \end{frame}
+\begin{frame}{Comandos básicos para administración de archivos II}
+\scriptsize
+\begin{tabular}{c|p{5cm}|l}
+\hline
+\textbf{head} & Muestra las primeras lineas de un archivo   & \texttt{head -n 5 archivo.txt}\\
+\textbf{tail}  & Muestras las últimas líneas de un archivo  & \texttt{tail -f /var/log/messages}\\
+\textbf{grep} & Búsqueda de archivos de texto con \textbf{expresiones regulares}   &\texttt{grep -n txt\$ log.txt}\\
+\textbf{cp} & Copiar un archivo o directorio  & \texttt{cp -r \textit{dirOriginal} \textit{dirNueva}}
+\end{tabular}
+    
+\end{frame}
 
 \subsection{Gestión y administración de usuarios y grupos}
 \subsection{Gestión, administración e instalación de procesos/paquetes RPM}
