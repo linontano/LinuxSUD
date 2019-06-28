@@ -38,7 +38,7 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{ 
+\lstset{
   basicstyle=\tt\scriptsize,        % the size of the fonts that are used for the code
   breaklines=true,                 % sets automatic line breaking
   commentstyle=\color{mygreen},    % comment style
@@ -108,7 +108,7 @@
 \end{frame}
 \begin{frame}{FHS}
 \begin{itemize}
-    \item \textbf{Filesystem Hierarchy Standard}: estándar de jerarquía del sistema de archivos. 
+    \item \textbf{Filesystem Hierarchy Standard}: estándar de jerarquía del sistema de archivos.
     \item Todos los archivos y directorios aparecen bajo el directorio raíz, /, aun cuando se encuentren en distintos dispositivos físicos.
 \end{itemize}
 
@@ -125,10 +125,10 @@
 \item \textbf{/bin:} aplicaciones binarias de comandos esenciales para una sesión de usuario único o mutliusuario (Incluyen por ejemplo cat, ls, cp, rm, etc).
 \item \textbf{/sbin: }sistema de binarios esencial, comandos y programas exclusivos del superusuario (Por ejemplo init, route, ifup).
 \item \textbf{/dev:} permite interactuar con los dispositivos del equipo.
-\item \textbf{/etc:} archivos de configuración del sistema específico del Host de todo el sistema. 
+\item \textbf{/etc:} archivos de configuración del sistema específico del Host de todo el sistema.
 \item \textbf{/home:} carpeta por defecto de los usuarios.
 \item \textbf{/tmp:} almacena ficheros temporales.
-\item \textbf{/root:} directorio home del usuario root. 
+\item \textbf{/root:} directorio home del usuario root.
 \item \textbf{/mnt:} sistema de archivos montados temporalmente. Discos duros y particiones de forma temporal en el sistema.
 \end{itemize}
 \end{frame}
@@ -150,7 +150,7 @@
 \subsection{Comandos básicos para administración de archivos y directorios}
 \begin{frame}{Editores de texto}
 \textbf{Editor Vi:} \\editor de texto que maneja en memoria el texto entero de un archivo.\\[0.5cm]
-\textbf{Inicio Vi:} 
+\textbf{Inicio Vi:}
 \begin{center}
 \boxed{\texttt{\$ vi \textit{file}}}
 \end{center}
@@ -213,7 +213,7 @@ Se ingresa a ese modo con las teclas.
 \textbf{mkdir} & Crea directorio   & \texttt{mkdir /tmp/directorio} \\
 \textbf{touch} & Crea un fichero nuevo o actualiza la fecha de modificación & touch /tmp/file.txt
 \end{tabular}
- }   
+ }
 \end{frame}
 \begin{frame}{Práctica Vi}
 \begin{itemize}
@@ -244,8 +244,37 @@ Se ingresa a ese modo con las teclas.
 \textbf{grep} & Búsqueda de archivos de texto con \textbf{expresiones regulares}   &\texttt{grep -n txt\$ log.txt}\\
 \textbf{cp} & Copiar un archivo o directorio  & \texttt{cp -r \textit{dirOriginal} \textit{dirNueva}}
 \end{tabular}
-    
+
 \end{frame}
+\begin{frame}{Comandos básicos para administración de archivos II}
+\textbf{Uso de tuberías / pipes |}
+\begin{itemize}
+  \item Permite redirigir la salida estándar de un programa a la entrada estándar de un segundo programa.\\
+  \begin{center}
+    Ej: \texttt{\# tail -3 /var/log/messages | grep "Dec 15"}
+  \end{center}
+\end{itemize}
+\textbf{Redirectores $>$ $<$ $\gg$}
+\begin{itemize}
+  \item Con el uso de los redirectores se puede redigirir la entrada y salida estándar a \textbf{archivos}.
+  \begin{itemize}
+    \item \textbf{$>$ :} redirige la salida estándar de un programa.
+    \begin{center}
+      Ej: \texttt{\# head -2 /var/log/messages $>$ logFiltrado}
+    \end{center}
+    \item \textbf{$<$ :} redirecciona la entrada de datos a un archivo que contiene información previa.
+    \begin{center}
+      Ej: \texttt{\# mail -s "Hola como estas" $<$ mensaje.txt}
+    \end{center}
+    \item \textbf{$\gg$ :} redirige la salida estándar de un comando a un archivo, sin sobrescribir, lo añade al final de la última línea.
+    \begin{center}
+      Ej: \texttt{\# more test1 | grep usuario $\gg$ resultado}
+    \end{center}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
 
 \subsection{Gestión y administración de usuarios y grupos}
 \subsection{Gestión, administración e instalación de procesos/paquetes RPM}
